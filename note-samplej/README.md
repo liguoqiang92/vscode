@@ -9,4 +9,4 @@
 2.打开你的VScode，在需要的地方，按F1或者ctrl + shift + p,打开帮助栏；  
 3.输入你需要的，file note或者fun note，回车。  
 
-![](note-samplej\md.gif)
+![](md.gif)
