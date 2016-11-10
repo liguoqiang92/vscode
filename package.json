@@ -1,0 +1,41 @@
+{
+    "name": "note-samplej",
+    "displayName": "note samplej",
+    "description": "note samplej",
+    "version": "0.0.1",
+    "publisher": "notesamplej",
+    "engines": {
+        "vscode": "^1.5.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:extension.insertNote",
+        "onCommand:extension.insertNote2"
+    ],
+    "main": "./extension",
+    "contributes": {
+        "commands": [{
+            "command": "extension.insertNote",
+            "title": "fun note"
+        },
+        {
+            "command": "extension.insertNote2",
+            "title": "file note"
+        }
+
+        ]
+    },
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install"
+    },
+    "devDependencies": {
+        "typescript": "^2.0.3",
+        "vscode": "^1.0.0",
+        "mocha": "^2.3.3",
+        "eslint": "^3.6.0",
+        "@types/node": "^6.0.40",
+        "@types/mocha": "^2.2.32"
+    }
+}
