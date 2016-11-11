@@ -21,6 +21,8 @@ var pickOptions = {
   placeHolder: "Type note name"
 }
 
+var myDate = new Date();
+
 function insertText(text) {
   var editor = vscode.window.activeTextEditor;
   editor.edit(function (editBuilder) {
@@ -41,9 +43,9 @@ function activate(context) {
 
   });
 
-    var insertNote2 = vscode.commands.registerCommand('extension.insertNote2', function () {
+  var insertNote2 = vscode.commands.registerCommand('extension.insertNote2', function () {
     vscode.window.showQuickPick(filenote, pickOptions).then(function (item) {
-      insertText('\/** \n* @file  \n* @brief  \n* @author  \n* @date  \n* \n* $Id$ \n*/\n');
+      insertText('\/** \n* @file  \n* @brief  \n* @author  \n* @date '+myDate.toLocaleString( )+' \n* \n* $Id$ \n*/\n');
     });
 
   });

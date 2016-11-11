@@ -16,15 +16,15 @@
     ],
     "main": "./extension",
     "contributes": {
-        "commands": [{
-            "command": "extension.insertNote",
-            "title": "fun note"
-        },
-        {
-            "command": "extension.insertNote2",
-            "title": "file note"
-        }
-
+        "commands": [
+            {
+                "command": "extension.insertNote",
+                "title": "fun note"
+            },
+            {
+                "command": "extension.insertNote2",
+                "title": "file note"
+            }
         ]
     },
     "scripts": {
