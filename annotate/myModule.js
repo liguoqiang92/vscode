@@ -1,6 +1,18 @@
+/**
+*@file  annotate\myModule.js
+*@brief  本模块用于生成要插入的注释
+*@author 朱传贤
+*@data  2016-11-14 09:30
+*
+* $Id$
+*/
  'use strict'
 
+
 let vscode = require('vscode');
+
+var newLine = "\r\n";      //windows下的换行符，如果在liunx环境下开发需要改为 "\n"
+
 
 /** 得到当前时间nowTime */
 function getNowTime()
@@ -8,6 +20,9 @@ function getNowTime()
     var data = new Date;
     var hours = data.getHours();
     var minutes = data.getMinutes();
+    var year = data.getFullYear();
+    var month = data.getMonth() + 1;
+    var day = data.getDate();
     if (data.getHours() < 10)
     {
         hours="0"+data.getHours();
@@ -16,7 +31,7 @@ function getNowTime()
     {
         minutes="0"+data.getMinutes();
     }
-    var nowTime = data.getFullYear()+"-"+data.getMonth()+"-"+data.getDate()+" "+hours+":"+minutes;
+    var nowTime = year+"-"+month+"-"+day+" "+hours+":"+minutes;
     return nowTime;
 }
 
@@ -29,10 +44,13 @@ function getFileName()
     return fileName;
 }
 
+/** 文件头的注释 */
+var a = "/**"+newLine+" *@file  "+getFileName()+newLine+" *@brief  "+newLine+" *@author "+newLine+" *@data  "+getNowTime()+newLine+" *"+newLine+" * $Id$"+newLine+" */"+newLine;
 
-var a = "/**\r\n*@file  "+getFileName()+"\r\n"+"*@brief  \r\n"+"*@author \r\n*@data  "+getNowTime()+"\r\n*\r\n* $Id$\r\n*/\n";
-var c = "  /*-<  */";
+/** 行注释 */
+var c = " /*-<  */ ";
 
-// module.exports.NoteTitle = NoteTitle();
+
 module.exports.a = a;
 module.exports.c = c;
+module.exports.newLine = newLine;
