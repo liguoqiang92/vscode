@@ -15,11 +15,9 @@
          "onCommand:extension.NoteFile",
          "onCommand:extension.extension.NoteFuntion",
          "onCommand:extension.NoteCow"
-        // "*"
     ],
     
     "main": "./extension",
-
 
     "contributes": {
         "keybindings": [

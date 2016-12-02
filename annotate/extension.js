@@ -1,14 +1,9 @@
-
-
 let vscode = require('vscode');
 
 function activate(context) {
-
-
     let insert = require('./insertAnnotate');
- 
     let disposable1 = vscode.commands.registerCommand('extension.NoteFile', function () {       
-       insert.noteHead();
+       insert.noteHead(); 
     });
 
     let disposable2 = vscode.commands.registerCommand('extension.NoteFuntion', function () { 
@@ -26,7 +21,7 @@ function activate(context) {
 }
 
 exports.activate = activate;
-// this method is called when your extension is deactivated
+
 function deactivate() {
 }
 exports.deactivate = deactivate;

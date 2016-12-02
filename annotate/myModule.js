@@ -10,19 +10,17 @@
 
 
 let vscode = require('vscode');
-
-var newLine = "\r\n";      //windows下的换行符，如果在liunx环境下开发需要改为 "\n"
-
+var newLine = "\r\n";  
 
 /** 得到当前时间nowTime */
 function getNowTime()
 {
-    var data = new Date;
-    var hours = data.getHours();
-    var minutes = data.getMinutes();
-    var year = data.getFullYear();
-    var month = data.getMonth() + 1;
-    var day = data.getDate();
+    let data = new Date;
+    let hours = data.getHours();
+    let minutes = data.getMinutes();
+    let year = data.getFullYear();
+    let month = data.getMonth() + 1;
+    let day = data.getDate();
     if (data.getHours() < 10)
     {
         hours="0"+data.getHours();
@@ -31,7 +29,7 @@ function getNowTime()
     {
         minutes="0"+data.getMinutes();
     }
-    var nowTime = year+"-"+month+"-"+day+" "+hours+":"+minutes;
+    let nowTime = year+"-"+month+"-"+day+" "+hours+":"+minutes;
     return nowTime;
 }
 
@@ -40,17 +38,28 @@ function getFileName()
 {
     let editor = vscode.window.activeTextEditor;
     let doc = editor.document;
-    var fileName = doc.fileName;
+    let fileName = doc.fileName;
     return fileName;
 }
 
 /** 文件头的注释 */
-var a = "/**"+newLine+" *@file  "+getFileName()+newLine+" *@brief  "+newLine+" *@author "+newLine+" *@data  "+getNowTime()+newLine+" *"+newLine+" * $Id$"+newLine+" */"+newLine;
+var a = "/**"+newLine+
+        " *@file  "+getFileName()+newLine+
+        " *@brief  "+newLine+
+        " *@author "+newLine+
+        " *@data  "+getNowTime()+newLine+
+        " *"+newLine+
+        " * $Id$"+newLine+
+        " */"+newLine;
+
+ /** 空行注释 */ 
+ var b = "/** */";
 
 /** 行注释 */
 var c = " /*-<  */ ";
 
 
 module.exports.a = a;
+module.exports.b = b;
 module.exports.c = c;
 module.exports.newLine = newLine;
